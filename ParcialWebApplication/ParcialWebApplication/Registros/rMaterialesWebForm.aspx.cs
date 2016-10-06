@@ -35,7 +35,10 @@ namespace ParcialWebApplication.Registros
 
             LlenarClase(m);
 
-            m.Insertar();
+           if( m.Insertar())
+            {
+                Limpiar();
+            }
         }
 
         protected void SearchButton_Click(object sender, EventArgs e)
@@ -47,6 +50,32 @@ namespace ParcialWebApplication.Registros
             M.Buscar(M.IdMaterial);
             LlenarCampos(M);
 
+        }
+
+        protected void DeleteButton_Click(object sender, EventArgs e)
+        {
+            Materiales ma = new Materiales();
+
+            int id = 0;
+            int.TryParse(IdTextBox.Text, out id);
+            ma.IdMaterial = id;
+
+            if(ma.Eliminar())
+            {
+                Limpiar();
+            }
+        }
+
+        protected void Limpiar()
+        {
+            IdTextBox.Text = "";
+            DescTextBox.Text = "";
+            PrcTextBox.Text = "";
+        }
+
+        protected void NewButton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }

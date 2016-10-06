@@ -19,10 +19,12 @@
             <td class="auto-style3">
                 <asp:TextBox ID="IdTextBox" runat="server" Width="122px"></asp:TextBox>
 &nbsp;
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="IdTextBox" ErrorMessage="Favor digite el Id que desea buscar" ForeColor="#CC0000" ValidationGroup="BuscarId">*</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="IdTextBox" ErrorMessage="Favor digite el Id " ForeColor="#CC0000" ValidationGroup="BuscarId">*</asp:RequiredFieldValidator>
                 <asp:Button ID="SearchButton" runat="server" Text="Buscar" ValidationGroup="BuscarId" Width="94px" OnClick="SearchButton_Click" />
             </td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:ValidationSummary ID="ValidationSummary2" runat="server" ForeColor="#CC0000" ValidationGroup="BuscarId" />
+            </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -59,12 +61,12 @@
         </tr>
         <tr>
             <td class="auto-style2">
-                <asp:Button ID="NewButton" runat="server" Text="Nuevo" Width="93px" />
+                <asp:Button ID="NewButton" runat="server" Text="Nuevo" Width="93px" OnClick="NewButton_Click" />
             </td>
             <td class="auto-style3">
                 <asp:Button ID="SaveButton" runat="server" OnClick="SaveButton_Click" Text="Guardar" ValidationGroup="guardarDatos" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="DeleteButton" runat="server" Text="Eliminar" />
+                <asp:Button ID="DeleteButton" runat="server" Text="Eliminar" OnClick="DeleteButton_Click" ValidationGroup="BuscarId" />
             </td>
             <td>
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="#CC0000" ValidationGroup="guardarDatos" />
