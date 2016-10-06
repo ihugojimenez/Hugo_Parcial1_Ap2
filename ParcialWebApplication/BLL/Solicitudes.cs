@@ -81,7 +81,19 @@ namespace BLL
 
         public override bool Eliminar()
         {
-            throw new NotImplementedException();
+            bool retorno = false;
+
+            try
+            {
+                retorno = Conexion.Ejecutar(string.Format("Delete from Solicitudes where IdSolicitud= {0}", this.Idsolicitud));
+                if (retorno == true)
+                    Conexion.Ejecutar(string.Format("Delete from SolicitudesDetalle where IdSolicitud = {0}", this.Idsolicitud));
+
+            }catch
+            {
+                retorno = false;
+            }
+            return retorno;
         }
 
         public override bool Buscar(int IdBuscado)

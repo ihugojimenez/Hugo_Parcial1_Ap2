@@ -51,6 +51,7 @@ namespace ParcialWebApplication.Registros
             aux  += m.Precio * Convert.ToInt32(CantTextBox.Text);
             ViewState["Total"] = aux;
             TotalTextBox.Text = ViewState["Total"].ToString();
+            CantTextBox.Text = "";
             
         }
 
@@ -74,6 +75,16 @@ namespace ParcialWebApplication.Registros
             Solicitudes S = new Solicitudes();
             LlenarClase(S);
             S.Insertar();
+        }
+
+        protected void DeleteButton_Click(object sender, EventArgs e)
+        {
+            Solicitudes s = new Solicitudes();
+            int id = 0;
+            int.TryParse(IdTextBox.Text, out id);
+            s.Idsolicitud = id;
+
+            s.Eliminar();
         }
     }
 }

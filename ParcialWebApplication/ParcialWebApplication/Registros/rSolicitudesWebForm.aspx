@@ -8,14 +8,14 @@
             width: 104px;
         }
         .auto-style3 {
-            width: 181px;
+            width: 196px;
         }
         .auto-style4 {
             width: 104px;
             height: 26px;
         }
         .auto-style5 {
-            width: 181px;
+            width: 196px;
             height: 26px;
         }
         .auto-style6 {
@@ -108,7 +108,7 @@
         </tr>
         <tr>
             <td class="auto-style4"></td>
-            <td class="auto-style5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total</td>
+            <td class="auto-style5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total</td>
             <td class="auto-style6">
                 <asp:TextBox ID="TotalTextBox" runat="server"></asp:TextBox>
             </td>
@@ -134,6 +134,8 @@
             </td>
             <td class="auto-style5">
                 <asp:Button ID="SaveButton" runat="server" OnClick="SaveButton_Click" Text="Guardar" />
+&nbsp;&nbsp;
+                <asp:Button ID="DeleteButton" runat="server" OnClick="DeleteButton_Click" Text="Eliminar" />
             </td>
             <td class="auto-style6">&nbsp;</td>
             <td class="auto-style6">&nbsp;</td>
