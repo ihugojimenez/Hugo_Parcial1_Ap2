@@ -115,7 +115,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="rWebForm.aspx" />
+    <Content Include="Registros\rMaterialesWebForm.aspx" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Web.config" />
@@ -127,12 +127,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="rWebForm.aspx.cs">
-      <DependentUpon>rWebForm.aspx</DependentUpon>
+    <Compile Include="Registros\rMaterialesWebForm.aspx.cs">
+      <DependentUpon>rMaterialesWebForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="rWebForm.aspx.designer.cs">
-      <DependentUpon>rWebForm.aspx</DependentUpon>
+    <Compile Include="Registros\rMaterialesWebForm.aspx.designer.cs">
+      <DependentUpon>rMaterialesWebForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>

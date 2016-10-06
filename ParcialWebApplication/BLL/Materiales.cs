@@ -84,7 +84,7 @@ namespace BLL
             {
                 this.IdMaterial = IdBuscado;
                 this.Descripcion = dt.Rows[0]["Descripcion"].ToString();
-                this.Precio = (float)dt.Rows[0]["Precio"];
+                this.Precio = float.Parse(dt.Rows[0]["Precio"].ToString());
             }
 
             return dt.Rows.Count > 0;
