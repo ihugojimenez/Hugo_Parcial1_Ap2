@@ -11,10 +11,14 @@ namespace ParcialWebApplication
 {
     public partial class rWebForm : System.Web.UI.Page
     {
+        
         SolicitudMateriales SM = new SolicitudMateriales();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            DataTable dt = new DataTable();
+            dt.Columns.AddRange(new DataColumn[2]);
+            Session["Detalle"] = dt;
+           
         }
 
         protected void LlenarClase(SolicitudMateriales sm)
@@ -66,14 +70,13 @@ namespace ParcialWebApplication
 
         protected void AddButton_Click(object sender, EventArgs e)
         {
-            MaterialesDetalle md = new MaterialesDetalle();
-            md.Descripcion = MaterialTextBox.Text;
-            md.Id = 0;
+            
             DataTable dt = new DataTable();//(DataTable)ViewState["Descripcion"];
-            dt.Rows.Add(MaterialTextBox.Text);
+            dt.Columns 
+                =    (MaterialTextBox.Text);
             ViewState["Descripcion"] = dt;
-            DataGridView.DataSource = dt.Container;
-            DataBind();
+            DataGridView.DataSource = dt;
+            DataGridView.DataBind();
             
         }
     }
