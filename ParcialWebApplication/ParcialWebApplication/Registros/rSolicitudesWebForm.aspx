@@ -21,7 +21,6 @@
             </td>
             <td>Fecha&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="FechaTextBox" runat="server" Width="149px"></asp:TextBox>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="FechaTextBox" ErrorMessage="Inserte un fortamtod e fecha valido" ForeColor="#CC0000">*</asp:RegularExpressionValidator>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -42,8 +41,8 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style3">&nbsp;</td>
+            <td class="auto-style2">Material</td>
+            <td class="auto-style3">Cantidad</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -52,8 +51,27 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style3">&nbsp;</td>
+            <td class="auto-style2">
+                <asp:DropDownList ID="MaterialDropDownList" runat="server">
+                </asp:DropDownList>
+            </td>
+            <td class="auto-style3">
+                <asp:TextBox ID="CantTextBox" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                <asp:Button ID="AddButton" runat="server" OnClick="AddButton_Click" Text="Agregar" />
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2" rowspan="3">
+                <asp:GridView ID="DataGridView" runat="server">
+                </asp:GridView>
+            </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -62,8 +80,6 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style3">&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -72,18 +88,6 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style3">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style3">&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
