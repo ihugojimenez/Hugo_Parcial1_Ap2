@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Registros\rMaterialesWebForm.aspx" />
+    <Content Include="Registros\rSolicitudesWebForm.aspx" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Web.config" />
@@ -133,6 +134,13 @@
     </Compile>
     <Compile Include="Registros\rMaterialesWebForm.aspx.designer.cs">
       <DependentUpon>rMaterialesWebForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rSolicitudesWebForm.aspx.cs">
+      <DependentUpon>rSolicitudesWebForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rSolicitudesWebForm.aspx.designer.cs">
+      <DependentUpon>rSolicitudesWebForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
