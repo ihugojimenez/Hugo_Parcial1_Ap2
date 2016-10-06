@@ -45,15 +45,35 @@ namespace ParcialWebApplication.Registros
             m.Buscar(Convert.ToInt32(MaterialDropDownList.SelectedValue));
             DataTable dt = (DataTable)ViewState["Detalle"]; //lo que me cofundia es que pensaba que esto no era una sesion y practicamente es lo mismo
             aux = (float)ViewState["Total"];
-            dt.Rows.Add(m.Descripcion, CantTextBox.Text, m.Precio);
+            dt.Rows.Add(MaterialDropDownList.SelectedValue/*m.Descripcion*/, CantTextBox.Text, m.Precio);
             ViewState["Detalle"] = dt;
             this.BindGrind();
             aux  += m.Precio * Convert.ToInt32(CantTextBox.Text);
             ViewState["Total"] = aux;
             TotalTextBox.Text = ViewState["Total"].ToString();
             
+        }
+
+        protected void LlenarClase(Solicitudes s)
+        {
+            
+            //s.Fecha = DateTime.Now;
+            s.Razon = RazonTextBox.Text;
+            s.Total = Convert.ToSingle(ViewState["Total"]);
+
+            foreach(GridViewRow gv in DataGridView.Rows)
+            {
+                s.AgregarMateriales(s.Idsolicitud, Convert.ToInt32(gv.Cells[0].Text), Convert.ToInt32(gv.Cells[1].Text));
+            }
+
+        }
 
 
+        protected void SaveButton_Click(object sender, EventArgs e)
+        {
+            Solicitudes S = new Solicitudes();
+            LlenarClase(S);
+            S.Insertar();
         }
     }
 }

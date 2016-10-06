@@ -118,5 +118,29 @@
             <td class="auto-style6"></td>
             <td class="auto-style6"></td>
         </tr>
+        <tr>
+            <td class="auto-style4">&nbsp;</td>
+            <td class="auto-style5">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style4">
+                <asp:Button ID="NewButton" runat="server" Text="Nuevo" Width="87px" />
+            </td>
+            <td class="auto-style5">
+                <asp:Button ID="SaveButton" runat="server" OnClick="SaveButton_Click" Text="Guardar" />
+            </td>
+            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
+        </tr>
     </table>
 </asp:Content>
