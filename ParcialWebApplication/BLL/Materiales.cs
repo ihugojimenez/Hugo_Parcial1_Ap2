@@ -96,7 +96,7 @@ namespace BLL
             if (!Orden.Equals(""))
                 ordenFinal = " Orden by  " + Orden;
 
-            return Conexion.ObtenerDatos("Select " + Campos + " From Personas Where " + Condicion + Orden);
+            return Conexion.ObtenerDatos("Select " + Campos + " From Materiales Where " + Condicion + Orden);
         }
     }
 }

@@ -10,6 +10,17 @@
         .auto-style3 {
             width: 181px;
         }
+        .auto-style4 {
+            width: 104px;
+            height: 26px;
+        }
+        .auto-style5 {
+            width: 181px;
+            height: 26px;
+        }
+        .auto-style6 {
+            height: 26px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -96,14 +107,16 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style3">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style4"></td>
+            <td class="auto-style5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total</td>
+            <td class="auto-style6">
+                <asp:TextBox ID="TotalTextBox" runat="server"></asp:TextBox>
+            </td>
+            <td class="auto-style6"></td>
+            <td class="auto-style6"></td>
+            <td class="auto-style6"></td>
+            <td class="auto-style6"></td>
+            <td class="auto-style6"></td>
         </tr>
     </table>
 </asp:Content>

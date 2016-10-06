@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClaseAuxiliarClass1.cs" />
     <Compile Include="ClaseMaestra.cs" />
     <Compile Include="Materiales.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
