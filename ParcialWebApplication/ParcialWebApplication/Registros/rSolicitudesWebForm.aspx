@@ -132,7 +132,7 @@
         </tr>
         <tr>
             <td class="auto-style4">
-                <asp:Button ID="NewButton" runat="server" Text="Nuevo" Width="87px" />
+                <asp:Button ID="NewButton" runat="server" Text="Nuevo" Width="87px" OnClick="NewButton_Click" />
             </td>
             <td class="auto-style5">
                 <asp:Button ID="SaveButton" runat="server" OnClick="SaveButton_Click" Text="Guardar" />

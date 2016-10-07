@@ -11,7 +11,7 @@ namespace BLL
     {
         ConexionDb Conexion = new ConexionDb();
         public int IdSolicitud { get; set; }
-       // public DateTime Fecha { get; set; }
+        public string Fecha { get; set; }
         public string Razon { get; set; }
         public float Total { get; set; }
         public List<SolicitudesDetalle> Detalle { get; set; }
@@ -34,8 +34,8 @@ namespace BLL
             {
                 //obtengo el identity insertado en la tabla personas
                 identity = Conexion.ObtenerValor(
-                    string.Format("Insert into Solicitudes(Razon, Total) values('{0}', {1}); select @@Identity"
-                    , this.Razon, this.Total));
+                    string.Format("Insert into Solicitudes(Fecha,Razon, Total) values('{0}', '{1}',{2}); select @@Identity"
+                    , this.Fecha, this.Razon, this.Total));
 
                 //intento convertirlo a entero
                 int.TryParse(identity.ToString(), out retorno);
@@ -107,6 +107,7 @@ namespace BLL
                 if(dt.Rows.Count >0)
                 {
                     this.IdSolicitud = IdBuscado;
+                    this.Fecha = dt.Rows[0]["Fecha"].ToString();
                     this.Razon = dt.Rows[0]["Razon"].ToString();
                     this.Total = Convert.ToSingle(dt.Rows[0]["Total"]);
 

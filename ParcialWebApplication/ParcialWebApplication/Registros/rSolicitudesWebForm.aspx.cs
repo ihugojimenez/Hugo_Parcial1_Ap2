@@ -61,6 +61,7 @@ namespace ParcialWebApplication.Registros
             //s.Fecha = DateTime.Now;
             s.Razon = RazonTextBox.Text;
             s.Total = Convert.ToSingle(ViewState["Total"]);
+            s.Fecha = FechaTextBox.Text;
 
             foreach(GridViewRow gv in DataGridView.Rows)
             {
@@ -74,7 +75,10 @@ namespace ParcialWebApplication.Registros
         {
             Solicitudes S = new Solicitudes();
             LlenarClase(S);
-            S.Insertar();
+            if(S.Insertar())
+            {
+                Limpar();
+            }
         }
 
         protected void DeleteButton_Click(object sender, EventArgs e)
@@ -84,13 +88,17 @@ namespace ParcialWebApplication.Registros
             int.TryParse(IdTextBox.Text, out id);
             so.IdSolicitud = id;
 
-            so.Eliminar();
+            if(so.Eliminar())
+            {
+                Limpar();
+            }
         }
 
         protected void LlenarCampos(Solicitudes s)
         {
             Materiales m = new Materiales();//declare esta varaiable para que cada vez que entre al foreach, osea mninetras halla detalle(ver linea 101)..
             IdTextBox.Text = s.IdSolicitud.ToString();
+            FechaTextBox.Text = s.Fecha;
             RazonTextBox.Text = s.Razon;
             TotalTextBox.Text = s.Total.ToString();
             DataTable det = new DataTable();
@@ -109,9 +117,27 @@ namespace ParcialWebApplication.Registros
         protected void SearchButton_Click(object sender, EventArgs e)
         {
             Solicitudes so = new Solicitudes();
-
+            
             so.Buscar(Convert.ToInt32(IdTextBox.Text));
+            Limpar();
             LlenarCampos(so);
+        }
+
+        protected void Limpar()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.AddRange(new DataColumn[3] { new DataColumn("Material"), new DataColumn("Cantidad"), new DataColumn("Precio") });
+            IdTextBox.Text = "";
+            FechaTextBox.Text = "";
+            CantTextBox.Text = "";
+            TotalTextBox.Text = "";
+            ViewState["Detalle"] = dt;
+            this.BindGrind();
+        }
+
+        protected void NewButton_Click(object sender, EventArgs e)
+        {
+            Limpar();
         }
     }
 }
