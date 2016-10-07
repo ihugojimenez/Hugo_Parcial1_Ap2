@@ -129,6 +129,7 @@ namespace ParcialWebApplication.Registros
             dt.Columns.AddRange(new DataColumn[3] { new DataColumn("Material"), new DataColumn("Cantidad"), new DataColumn("Precio") });
             IdTextBox.Text = "";
             FechaTextBox.Text = "";
+            RazonTextBox.Text = "";
             CantTextBox.Text = "";
             TotalTextBox.Text = "";
             ViewState["Detalle"] = dt;

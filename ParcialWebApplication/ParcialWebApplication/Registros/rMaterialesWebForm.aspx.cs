@@ -55,8 +55,11 @@ namespace ParcialWebApplication.Registros
         protected void DeleteButton_Click(object sender, EventArgs e)
         {
             Materiales ma = new Materiales();
+            int id = 0;
+            int.TryParse(IdTextBox.Text, out id);
+            ma.IdMaterial = id;
 
-            ma.Buscar(Convert.ToInt32(IdTextBox.Text));
+            ma.Buscar(ma.IdMaterial);
 
             if(ma.Eliminar())
             {
