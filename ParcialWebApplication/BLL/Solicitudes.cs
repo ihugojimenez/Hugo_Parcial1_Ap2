@@ -10,7 +10,7 @@ namespace BLL
     public class Solicitudes : ClaseMaestra
     {
         ConexionDb Conexion = new ConexionDb();
-        public int Idsolicitud { get; set; }
+        public int IdSolicitud { get; set; }
        // public DateTime Fecha { get; set; }
         public string Razon { get; set; }
         public float Total { get; set; }
@@ -18,7 +18,7 @@ namespace BLL
 
         public Solicitudes()
         {
-            Idsolicitud = 0;
+            IdSolicitud = 0;
             //Fecha = DateTime.Today;
             Razon = "";
             Total = 0.00f;
@@ -40,7 +40,7 @@ namespace BLL
                 //intento convertirlo a entero
                 int.TryParse(identity.ToString(), out retorno);
 
-                this.Idsolicitud = retorno;
+                this.IdSolicitud = retorno;
                 foreach (SolicitudesDetalle item in this.Detalle)
                 {
                     Conexion.Ejecutar(string.Format("Insert into SolicitudesDetalle(IdSolicitud, IdMaterial, Cantidad) values({0}, {1}, {2})",
@@ -85,9 +85,9 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("Delete from Solicitudes where IdSolicitud= {0}", this.Idsolicitud));
-                if (retorno == true)
-                    Conexion.Ejecutar(string.Format("Delete from SolicitudesDetalle where IdSolicitud = {0}", this.Idsolicitud));
+                retorno = Conexion.Ejecutar(string.Format("Delete from Solicitudes Where IdSolicitud = {0}", this.IdSolicitud));
+                if (retorno)
+                    Conexion.Ejecutar(string.Format("Delete from SolicitudesDetalle Where IdSolicitud = {0}", this.IdSolicitud));
 
             }catch
             {
@@ -98,7 +98,34 @@ namespace BLL
 
         public override bool Buscar(int IdBuscado)
         {
-            throw new NotImplementedException();
+            DataTable dt = new DataTable();
+            DataTable det = new DataTable();
+
+            try
+            {
+                dt = Conexion.ObtenerDatos(string.Format("Select * from Solicitudes where IdSolicitud = {0}", IdBuscado));
+                if(dt.Rows.Count >0)
+                {
+                    this.IdSolicitud = IdBuscado;
+                    this.Razon = dt.Rows[0]["Razon"].ToString();
+                    this.Total = Convert.ToSingle(dt.Rows[0]["Total"]);
+
+                }
+                det = Conexion.ObtenerDatos(string.Format("Select * from SolicitudesDetalle where IdSolicitud ={0}", this.IdSolicitud));
+                if(det.Rows.Count>0)
+                {
+                    foreach(DataRow dr in det.Rows)
+                    {
+                        this.AgregarMateriales(IdBuscado, (int)dr["IdMaterial"], (int)dr["Cantidad"]);
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            return dt.Rows.Count > 0;
         }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
@@ -108,7 +135,7 @@ namespace BLL
 
         public void AgregarMateriales(int IdSolicitud,int IdMaterial, int cant) // A este metodo se referia cuando dijo que se podia agregar desde la misma clase...
         {
-            this.Detalle.Add(new SolicitudesDetalle(Idsolicitud, IdMaterial, cant));
+            this.Detalle.Add(new SolicitudesDetalle(IdSolicitud, IdMaterial, cant));
         }
     }
 }

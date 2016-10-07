@@ -56,9 +56,7 @@ namespace ParcialWebApplication.Registros
         {
             Materiales ma = new Materiales();
 
-            int id = 0;
-            int.TryParse(IdTextBox.Text, out id);
-            ma.IdMaterial = id;
+            ma.Buscar(Convert.ToInt32(IdTextBox.Text));
 
             if(ma.Eliminar())
             {

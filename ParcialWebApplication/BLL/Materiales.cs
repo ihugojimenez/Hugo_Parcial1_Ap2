@@ -66,7 +66,7 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("Delete from Materiales where IdMaterial = {0}", this.IdMaterial));
+                retorno = Conexion.Ejecutar(string.Format("Delete from Materiales where IdMaterial={0}", this.IdMaterial));
             }
             catch
             {

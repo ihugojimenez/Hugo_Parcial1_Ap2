@@ -64,7 +64,7 @@ namespace ParcialWebApplication.Registros
 
             foreach(GridViewRow gv in DataGridView.Rows)
             {
-                s.AgregarMateriales(s.Idsolicitud, Convert.ToInt32(gv.Cells[0].Text), Convert.ToInt32(gv.Cells[1].Text));
+                s.AgregarMateriales(s.IdSolicitud, Convert.ToInt32(gv.Cells[0].Text), Convert.ToInt32(gv.Cells[1].Text));
             }
 
         }
@@ -79,12 +79,39 @@ namespace ParcialWebApplication.Registros
 
         protected void DeleteButton_Click(object sender, EventArgs e)
         {
-            Solicitudes s = new Solicitudes();
+            Solicitudes so = new Solicitudes();
             int id = 0;
             int.TryParse(IdTextBox.Text, out id);
-            s.Idsolicitud = id;
+            so.IdSolicitud = id;
 
-            s.Eliminar();
+            so.Eliminar();
+        }
+
+        protected void LlenarCampos(Solicitudes s)
+        {
+            Materiales m = new Materiales();//declare esta varaiable para que cada vez que entre al foreach, osea mninetras halla detalle(ver linea 101)..
+            IdTextBox.Text = s.IdSolicitud.ToString();
+            RazonTextBox.Text = s.Razon;
+            TotalTextBox.Text = s.Total.ToString();
+            DataTable det = new DataTable();
+
+            foreach(var aux in s.Detalle)
+            {
+                DataTable dt = (DataTable)ViewState["Detalle"];
+                m.Buscar(aux.idMaterial); //buscar por el idmaterial que tenga el aux, y darle una salida mas optima para el usuario, jeje, en el examen no hubiera tenido tiempo para eso >.<
+                dt.Rows.Add(m.Descripcion, aux.Cantidad, m.Precio);
+                ViewState["Detalle"] = dt;
+                DataGridView.DataSource = dt; 
+                this.BindGrind();
+            }
+        }
+
+        protected void SearchButton_Click(object sender, EventArgs e)
+        {
+            Solicitudes so = new Solicitudes();
+
+            so.Buscar(Convert.ToInt32(IdTextBox.Text));
+            LlenarCampos(so);
         }
     }
 }
