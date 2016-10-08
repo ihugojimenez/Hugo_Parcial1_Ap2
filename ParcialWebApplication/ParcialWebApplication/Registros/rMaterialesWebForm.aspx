@@ -66,8 +66,7 @@
             <td class="auto-style3">
                 <asp:Button ID="SaveButton" runat="server" OnClick="SaveButton_Click" Text="Guardar" ValidationGroup="guardarDatos" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="DeleteButton" runat="server" Text="Eliminar" OnClick="DeleteButton_Click" ValidationGroup="BuscarId" />
-            </td>
+                </td>
             <td>
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="#CC0000" ValidationGroup="guardarDatos" />
             </td>
