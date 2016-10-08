@@ -34,7 +34,7 @@
             </td>
             <td>Fecha&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="FechaTextBox" runat="server" Width="149px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Favor ingrese la Fecha" ForeColor="#CC0000" ValidationGroup="Guardar">*</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Favor ingrese la Fecha" ForeColor="#CC0000" ValidationGroup="Guardar" ControlToValidate="FechaTextBox">*</asp:RequiredFieldValidator>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

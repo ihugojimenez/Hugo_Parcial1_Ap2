@@ -68,10 +68,8 @@ namespace BLL
             {
                 retorno = Conexion.Ejecutar(string.Format("Delete from Materiales Where IdMaterial = {0}", this.IdMaterial));
             }
-            catch
-            {
-                retorno = false;
-            }
+            catch(Exception ex) { throw ex; }
+            
             return retorno;
         }
 

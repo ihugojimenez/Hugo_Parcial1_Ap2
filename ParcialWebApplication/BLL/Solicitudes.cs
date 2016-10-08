@@ -85,14 +85,11 @@ namespace BLL
 
             try
             {
-                retorno = Conexion.Ejecutar(string.Format("Delete from Solicitudes Where IdSolicitud = {0}", this.IdSolicitud));
-                if (retorno)
-                    Conexion.Ejecutar(string.Format("Delete from SolicitudesDetalle Where IdSolicitud = {0}", this.IdSolicitud));
+                retorno = Conexion.Ejecutar(string.Format("Delete from SolicitudesDetalle Where IdSolicitud = {0}", this.IdSolicitud + ";"+"Delete from Solicitudes Where IdSolicitud ="+ this.IdSolicitud));
+          
 
-            }catch
-            {
-                retorno = false;
-            }
+            }catch(Exception ex) { throw ex; }
+            
             return retorno;
         }
 
