@@ -135,9 +135,10 @@ namespace BLL
             {
                 OrdenFinal = " Order by " + Orden;
             }
-            return conexion.ObtenerDatos("select " + Campos + " from Solicitudes where " + Condicion + " " + OrdenFinal + " --");
+            return conexion.ObtenerDatos("select " + Campos + " from Solicitudes as S inner join SolicitudesDetalle SD on S.IdSolicitud=SD.IdSolicitud inner join Materiales M on SD.IdMaterial=M.IdMaterial where " + Condicion + " " + OrdenFinal + " --");
         }
 
+       
         public void AgregarMateriales(int IdSolicitud,int IdMaterial, int cant) // A este metodo se referia cuando dijo que se podia agregar desde la misma clase...
         {
             this.Detalle.Add(new SolicitudesDetalle(IdSolicitud, IdMaterial, cant));
