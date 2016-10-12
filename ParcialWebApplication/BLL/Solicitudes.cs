@@ -128,7 +128,14 @@ namespace BLL
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            throw new NotImplementedException();
+            ConexionDb conexion = new ConexionDb();
+            string OrdenFinal = "";
+
+            if (!Orden.Equals(""))
+            {
+                OrdenFinal = " Order by " + Orden;
+            }
+            return conexion.ObtenerDatos("select " + Campos + " from Solicitudes where " + Condicion + " " + OrdenFinal + " --");
         }
 
         public void AgregarMateriales(int IdSolicitud,int IdMaterial, int cant) // A este metodo se referia cuando dijo que se podia agregar desde la misma clase...
